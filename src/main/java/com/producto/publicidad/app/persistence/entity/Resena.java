@@ -28,9 +28,9 @@ public class Resena implements Serializable{
 		@JoinColumn(name="id_cliente")
 		private Cliente cliente;
 		
-		@OneToMany
+		@ManyToOne
 		@JoinColumn(name = "id_publicaciones")
-		private Publicaciones publicacion;
+		private Publicaciones publicaciones;
 
 		
 		
