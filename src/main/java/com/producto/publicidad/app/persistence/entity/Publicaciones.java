@@ -9,23 +9,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name = "Publicaciones")
-@Table(name = "Resenas")
-public class Publicaciones implements Serializable{
-	
-	
-	
+@Entity
+@Table(name = "Publicaciones")
+public class Publicaciones implements Serializable {
+
 	@Id
 	private Integer Id_publicacion;
 	private String Descripcion;
 	private LocalDate Fecha;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-	
+
 	public Publicaciones() {
-		
+
 	}
 
 	public String getDescripcion() {
@@ -43,7 +41,7 @@ public class Publicaciones implements Serializable{
 	public void setFecha(LocalDate fecha) {
 		Fecha = fecha;
 	}
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 }
