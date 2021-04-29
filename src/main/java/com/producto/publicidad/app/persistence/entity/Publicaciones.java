@@ -2,11 +2,15 @@ package com.producto.publicidad.app.persistence.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +25,10 @@ public class Publicaciones implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-
+	
+	@OneToMany(mappedBy = "publicaciones", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Resena> resenas;
+	
 	public Publicaciones() {
 
 	}
